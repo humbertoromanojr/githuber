@@ -6,4 +6,6 @@ if (__DEV__) {
     .connect(); // let's connect!
 
   console.tron = tron;
+
+  tron.clear();
 }
