@@ -1,0 +1,29 @@
+import React from 'react';
+import {
+  View, Text, TextInput, TouchableOpacity,
+} from 'react-native';
+
+import styles from './styles';
+
+const Welcome = () => (
+  <View style={styles.container}>
+    <Text style={styles.title}>Welcome</Text>
+    <Text style={styles.text}>Para continuar precisamos que digite o seu usuário do Github.</Text>
+
+    <View style={styles.form}>
+      <TextInput
+        style={styles.input}
+        autoCapitalize="none"
+        autoCorrect={false}
+        placeholder="Digite seu usuário"
+        underlineColorAndroid="transparent"
+      />
+
+      <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <Text style={styles.buttonText}>Prosseguir</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+);
+
+export default Welcome;

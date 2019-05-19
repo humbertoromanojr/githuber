@@ -1,25 +1,9 @@
-import React, { Component } from 'react';
-import {
-  Platform, StyleSheet, Text, View,
-} from 'react-native';
+import React from 'react';
 
 import './config/ReactotronConfig';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Githuber React Native!!!</Text>
-      </View>
-    );
-  }
-}
+import Routes from './routes';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
+const App = () => <Routes />;
+
+export default App;
