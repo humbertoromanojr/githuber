@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import api from '~/services/api';
+
 import {
-  View, Text, TextInput, TouchableOpacity, StatusBar,
+  View, Text, TextInput, TouchableOpacity, StatusBar, AsyncStorage,
 } from 'react-native';
 
 import styles from './styles';
@@ -10,7 +12,29 @@ class Welcome extends Component {
     userName: '',
   };
 
-  signIn = () => {};
+  checkUserExists = async (userName) => {
+    const user = await api.get(`/users/${userName}`);
+
+    return user;
+  };
+
+  saveUser = async (userName) => {
+    await AsyncStorage.setItem('@Githuber:userName', userName);
+  };
+
+  signIn = async () => {
+    const { userName } = this.state;
+    const { navigation } = this.props;
+
+    try {
+      await this.checkUserExists(userName);
+      await this.saveUser(userName);
+
+      navigation.navigate('Repositories');
+    } catch (err) {
+      console.tron.log('Usuário inexistente!');
+    }
+  };
 
   render() {
     const { userName } = this.state;
