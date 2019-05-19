@@ -1,11 +1,11 @@
-import { createAppContainer, createSwitchNavigation } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import Welcome from '~/pages/Welcome';
 import Repositories from '~/pages/Repositories';
 // import Organizations from '~/pages/Organizations';
 
 const Routes = createAppContainer(
-  createSwitchNavigation({
+  createSwitchNavigator({
     Welcome,
     Repositories,
   }),
