@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import api from '~/services/api';
 
 import {
-  View, Text, TextInput, TouchableOpacity, StatusBar, AsyncStorage,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  AsyncStorage,
+  ActivityIndicator,
 } from 'react-native';
 
 import styles from './styles';
@@ -10,6 +16,7 @@ import styles from './styles';
 class Welcome extends Component {
   state = {
     userName: '',
+    loading: false,
   };
 
   checkUserExists = async (userName) => {
@@ -26,18 +33,21 @@ class Welcome extends Component {
     const { userName } = this.state;
     const { navigation } = this.props;
 
+    this.setState({ loading: true });
+
     try {
       await this.checkUserExists(userName);
       await this.saveUser(userName);
 
       navigation.navigate('Repositories');
     } catch (err) {
+      this.setState({ loading: false });
       console.tron.log('Usuário inexistente!');
     }
   };
 
   render() {
-    const { userName } = this.state;
+    const { userName, loading } = this.state;
 
     return (
       <View style={styles.container}>
@@ -59,7 +69,11 @@ class Welcome extends Component {
           />
 
           <TouchableOpacity style={styles.button} onPress={this.signIn}>
-            <Text style={styles.buttonText}>Prosseguir</Text>
+            {loading ? (
+              <ActivityIndicator size="small" color="#fff" />
+            ) : (
+              <Text style={styles.buttonText}>Prosseguir</Text>
+            )}
           </TouchableOpacity>
         </View>
       </View>
