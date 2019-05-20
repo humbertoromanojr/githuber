@@ -19,3 +19,5 @@ const styles = StyleSheet.create({
     color: colors.darker,
   },
 });
+
+export default styles;
