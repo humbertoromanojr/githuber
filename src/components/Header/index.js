@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 const Header = ({ title }) => (
@@ -11,5 +12,9 @@ const Header = ({ title }) => (
     <TouchableOpacity onPress={() => {}} />
   </View>
 );
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Header;
