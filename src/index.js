@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './config/ReactotronConfig';
 
 import Routes from './routes';
 
-const App = () => <Routes />;
+export default class App extends Component {
+  state = {
+    userChecked: false,
+    userLogged: false,
+  };
 
-export default App;
+  render() {
+    return <Routes />;
+  }
+}
