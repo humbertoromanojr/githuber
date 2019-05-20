@@ -4,11 +4,16 @@ import Welcome from '~/pages/Welcome';
 import Repositories from '~/pages/Repositories';
 // import Organizations from '~/pages/Organizations';
 
-const Routes = createAppContainer(
-  createSwitchNavigator({
-    Welcome,
-    Repositories,
-  }),
+const Routes = (userLogger = false) => createAppContainer(
+  createSwitchNavigator(
+    {
+      Welcome,
+      Repositories,
+    },
+    {
+      initialRouteName: userLogger ? 'Repositories' : 'Welcome',
+    },
+  ),
 );
 
 export default Routes;
