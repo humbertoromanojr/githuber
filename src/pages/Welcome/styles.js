@@ -9,6 +9,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
   },
+  error: {
+    color: colors.danger,
+    textAlign: 'center',
+    marginTop: metrics.baseMargin,
+  },
+  form: {
+    marginTop: metrics.baseMargin,
+  },
   title: {
     textAlign: 'center',
     color: colors.white,

@@ -17,6 +17,7 @@ class Welcome extends Component {
   state = {
     userName: '',
     loading: false,
+    error: false,
   };
 
   checkUserExists = async (userName) => {
@@ -41,13 +42,13 @@ class Welcome extends Component {
 
       navigation.navigate('Repositories');
     } catch (err) {
-      this.setState({ loading: false });
+      this.setState({ loading: false, error: true });
       console.tron.log('Usuário inexistente!');
     }
   };
 
   render() {
-    const { userName, loading } = this.state;
+    const { userName, loading, error } = this.state;
 
     return (
       <View style={styles.container}>
@@ -56,6 +57,8 @@ class Welcome extends Component {
         <Text style={styles.text}>
           Para continuar precisamos que digite o seu usuário do Github.
         </Text>
+
+        {error && <Text style={styles.error}>Usuário inexistente!</Text>}
 
         <View style={styles.form}>
           <TextInput
