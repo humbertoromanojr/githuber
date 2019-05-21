@@ -1,10 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
-const Organizations = () => (
+import Header from '~/components/Header';
+
+const Repositories = () => (
   <View>
-    <Text>Organizations</Text>
+    <Header title="Organizations" />
   </View>
 );
 
-export default Organizations;
+export default Repositories;
