@@ -12,10 +12,13 @@ import styles from './styles';
 class Header extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
   };
 
   signOut = async () => {
-    const { navigation } = this.this.props;
+    const { navigation } = this.props;
 
     await AsyncStorage.clear();
 
