@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, Text, AsyncStorage, ActivityIndicator,
+  View, AsyncStorage, ActivityIndicator, FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PropTypes from 'prop-types';
@@ -32,7 +32,17 @@ export default class Repositories extends Component {
     this.setState({ data: response.data, loading: false });
   }
 
-  renderList = () => <Text>Lista</Text>;
+  renderList = () => {
+    const { data } = this.state;
+
+    return (
+      <FlatList
+        data={data}
+        keyExtractor={item => String(item.id)}
+        renderItem={this.renderListItem}
+      />
+    );
+  };
 
   render() {
     const { loading } = this.state;
