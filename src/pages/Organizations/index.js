@@ -3,10 +3,10 @@ import { View } from 'react-native';
 
 import Header from '~/components/Header';
 
-const Repositories = () => (
+const Organizations = () => (
   <View>
-    <Header title="Organizations" />
+    <Header title="Organizações" />
   </View>
 );
 
-export default Repositories;
+export default Organizations;
