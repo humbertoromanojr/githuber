@@ -47,7 +47,7 @@ class Welcome extends Component {
       await this.checkUserExists(userName);
       await this.saveUser(userName);
 
-      navigation.navigate('Repositories');
+      navigation.navigate('User');
     } catch (err) {
       this.setState({ loading: false, error: true });
       console.tron.log('Usuário inexistente!');
