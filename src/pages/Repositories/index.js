@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import api from '~/services/api';
 
 import Header from '~/components/Header';
+import RepositoryItem from './RepositoryItem';
 import styles from './styles';
 
 const TabIcon = ({ tintColor }) => <Icon name="list-alt" size={20} color={tintColor} />;
@@ -31,6 +32,8 @@ export default class Repositories extends Component {
 
     this.setState({ data: response.data, loading: false });
   }
+
+  renderListItem = ({ item }) => <RepositoryItem repository={item} />;
 
   renderList = () => {
     const { data } = this.state;
