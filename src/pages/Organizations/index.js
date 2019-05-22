@@ -52,6 +52,8 @@ export default class Organizations extends Component {
         keyExtractor={item => String(item.id)}
         renderItem={this.renderListItem}
         onRefresh={this.loadOrganizations}
+        numColumns={2}
+        columnWrapperStyle={styles.columnWrapper}
         refreshing={refreshing}
       />
     );
