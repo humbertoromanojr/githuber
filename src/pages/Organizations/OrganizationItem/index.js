@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { View, Text, Image } from 'react-native';
 
 import styles from '../styles';
@@ -10,5 +10,12 @@ const OrganizationItem = ({ organization }) => (
     <Text style={styles.title}>{organization.login}</Text>
   </View>
 );
+
+OrganizationItem.propTypes = {
+  organization: PropTypes.shape({
+    avatar_url: PropTypes.string,
+    login: PropTypes.string,
+  }).isRequired,
+};
 
 export default OrganizationItem;
