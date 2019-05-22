@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-
+import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
@@ -27,5 +27,14 @@ const RepositoryItem = ({ repository }) => (
     </View>
   </View>
 );
+
+RepositoryItem.prototypes = {
+  repository: PropTypes.shape({
+    full_name: PropTypes.string,
+    stargazers_count: PropTypes.number,
+    forks_count: PropTypes.number,
+    watchers_count: PropTypes.number,
+  }).isRequired,
+};
 
 export default RepositoryItem;
